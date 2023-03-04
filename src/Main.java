@@ -2,11 +2,11 @@ import java.util.*;
 
 public class Main {
     static Random rand = new Random();
-    public static void main(String[] args) {
-<<<<<<< HEAD
-        two();
-    }
 
+    public static void main(String[] args) {
+        two();
+        six();
+    }
     // Question Two
     static void two() {
         int[][] intArray = new int[4][4];
@@ -18,13 +18,13 @@ public class Main {
         for (int[] arr : intArray) {
             for (int num : arr)
                 System.out.printf("%d ", num);
-=======
-        six();
+            six();
+        }
     }
 
     static void six() {
         Character[][] wordSearch = new Character[10][10];
-        String[] words = { "heap", "stack", "buffer" };
+        String[] words = {"heap", "stack", "buffer"};
 
         for (int i = 0; i < wordSearch.length; i++)
             for (int j = 0; j < wordSearch[0].length; j++)
@@ -36,7 +36,7 @@ public class Main {
             int x = rand.nextInt(11 - word.length());
             int y = rand.nextInt(11 - word.length());
 
-            for (int ch : word.chars().toArray() ) {
+            for (int ch : word.chars().toArray()) {
                 wordSearch[y][x] = (char) (ch - 32);
                 x++;
             }
@@ -45,11 +45,10 @@ public class Main {
         print2DArray(wordSearch);
     }
 
-    static <T> void print2DArray(T[][] arr) {
+    static <T> void print2DArray(T[][]arr) {
         for (T a[] : arr) {
             for (T b : a)
                 System.out.print(b + " ");
->>>>>>> origin/six
 
             System.out.println();
         }
