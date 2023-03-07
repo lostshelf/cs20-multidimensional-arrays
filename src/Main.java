@@ -9,24 +9,34 @@ public class Main {
 
     public static void main(String[] args) {
         two();
+        printSeparator();
         four();
+        printSeparator();
         six();
+        printSeparator();
         eight();
     }
 
-    // Question Two
+    // Question Two (BONUS included)
     static void two() {
-        int[][] intArray = new int[4][4];
+        Integer[][] intArray = new Integer[4][4];
 
+        // Keep track of which row it's at
         for (int i = 0; i < 4; i++)
-            for (int j = 0; i < 4; i++)
-                intArray[i][j] = (i + 1) * (j + 1);
+            // Keep track of which column it's at
+            for (int j = 0; j < 4; j++)
+                // Choose a random number between 1 and 10 to fill the current element
+                intArray[i][j] = rand.nextInt(10) + 1;
 
-        for (int[] arr : intArray) {
-            for (int num : arr)
-                System.out.printf("%d ", num);
-            six();
-        }
+        print2DArray(intArray);
+        System.out.println("Total: ");
+
+        int total = 0;
+        for (Integer[] rows : intArray)
+            for (Integer vals : rows)
+                total += vals;
+
+        System.out.println(total + '\n');
     }
 
     static void four() {
@@ -105,7 +115,7 @@ public class Main {
             while (Arrays.stream(usedRows).anyMatch(i -> i == finalY));
 
             // Loop through each character in the word
-            for (int ch : word.chars().toArray()) {
+            for (int ch : word.toUpperCase().chars().toArray()) {
                 // Place it in the array with its corresponding X and Y values
                 wordSearch[y][x] = (char) ch; // Have to convert back to char since looping through it turns it into
                                               // an int for some reason?
@@ -124,6 +134,8 @@ public class Main {
 
     // A lot more annoying than the last one, but it was still pretty interesting
     // I haven't had to use 2D arrays a single time since I started coding, so it was a fun and new experience
+    // Not sure about how efficient this is. I feel like there's a much cleaner and more efficient way to do this
+    // but I'm happy with its current state.
     static void eight() {
         System.out.print("How many bell numbers would you like?: ");
         int rows = scan.nextInt();
@@ -170,5 +182,9 @@ public class Main {
             // Add extra line to make it look better
             System.out.println();
         }
+    }
+
+    static void printSeparator() {
+        System.out.println("------------------------------");
     }
 }
